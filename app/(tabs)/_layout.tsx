@@ -14,11 +14,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="random"
         options={{
-          title: "Explorar",
+          title: "Aleatório",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="search" color={color} size={size} />
+            <MaterialIcons name="casino" color={color} size={size} />
           ),
         }}
       />
