@@ -43,39 +43,38 @@ export default function SearchModal({ visible, onClose, onSelect }: Props) {
           placeholder="Digite o nome do filme"
           placeholderTextColor={theme.colors.subtext}
           autoFocus
-        >
-          <FlatList
-            data={filtered}
-            keyExtractor={(item) => String(item.id)}
-            contentContainerStyle={{ gap: 8, paddingTop: 12 }}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.modalRow}
-                onPress={() => {
-                  onSelect({
-                    title: item.title,
-                    subtitle: item.subtitle,
-                    imageSource: item.image,
-                  });
-                  onClose();
-                  setQ("");
-                }}
-              >
-                <Image
-                  source={item.image}
-                  style={{ width: 50, height: 75, borderRadius: 8 }}
-                ></Image>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.texto}>{item.title}</Text>
-                  <Text style={styles.subtexto}>{item.subtitle}</Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
-          <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-            <Text style={styles.closeText}>Fechar</Text>
-          </TouchableOpacity>
-        </TextInput>
+        />
+        <FlatList
+          data={filtered}
+          keyExtractor={(item) => String(item.id)}
+          contentContainerStyle={{ gap: 8, paddingTop: 12 }}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.modalRow}
+              onPress={() => {
+                onSelect({
+                  title: item.title,
+                  subtitle: item.subtitle,
+                  imageSource: item.image,
+                });
+                onClose();
+                setQ("");
+              }}
+            >
+              <Image
+                source={item.image}
+                style={{ width: 50, height: 75, borderRadius: 8 }}
+              ></Image>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.texto}>{item.title}</Text>
+                <Text style={styles.subtexto}>{item.subtitle}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
+        <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+          <Text style={styles.closeText}>Fechar</Text>
+        </TouchableOpacity>
       </View>
     </Modal>
   );

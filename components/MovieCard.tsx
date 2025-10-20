@@ -1,19 +1,19 @@
+import { Image } from "expo-image";
 import React from "react";
 import {
-  View,
+  ImageSourcePropType,
   Text,
-  StyleSheet,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from "react-native";
 import { styles } from "../styles/styles";
-import { Image } from "expo-image";
 
 type Props = {
   title?: string;
   subtitle?: string;
   placeholder?: boolean;
-  imageUrl?: string;
+  imageUrl?: ImageSourcePropType;
   onPress?: () => void;
   style?: ViewStyle;
 };
@@ -35,7 +35,7 @@ export default function MovieCard({
       <View style={[styles.poster, placeholder && styles.posterPlaceholder]}>
         {imageUrl && !placeholder ? (
           <Image
-            source={{ uri: imageUrl }}
+            source={imageUrl}
             style={styles.posterImage}
             contentFit="cover"
             transition={300}
