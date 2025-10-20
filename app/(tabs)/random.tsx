@@ -15,13 +15,13 @@ export default function RandomScreen() {
     setMovie({
       title: next.title,
       subtitle: next.subtitle,
-      imageSource: next.image,
+      imageSource: next.imageSource,
     });
   }
 
   return (
     <View style={styles.tela}>
-      <Text style={styles.tituloApp}>🎬 movie match</Text>
+      <Text style={styles.tituloApp}>Movie match</Text>
 
       <View style={styles.centro}>
         <MovieCard
@@ -34,7 +34,7 @@ export default function RandomScreen() {
       </View>
 
       <TouchableOpacity style={styles.btnSecondary} onPress={recommend}>
-        <Text style={styles.btnSecondaryText}>🎲 Recomendar aleatório</Text>
+        <Text style={styles.btnSecondaryText}>Recomendar aleatório</Text>
       </TouchableOpacity>
     </View>
   );

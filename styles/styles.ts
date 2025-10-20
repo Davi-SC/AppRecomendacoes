@@ -74,6 +74,7 @@ export const styles = StyleSheet.create({
     padding: theme.spacing,
     borderColor: theme.colors.border,
     borderWidth: 1,
+    width: "48%",
   },
   cardList: {
     backgroundColor: theme.colors.card,
@@ -85,7 +86,8 @@ export const styles = StyleSheet.create({
 
   //Poster do filme
   poster: {
-    height: 140,
+    width: "100%",
+    height: 180,
     borderRadius: theme.radius,
     backgroundColor: theme.colors.card,
     alignItems: "center",
@@ -96,12 +98,13 @@ export const styles = StyleSheet.create({
   posterPlaceholder: {
     borderWidth: 2,
     borderStyle: "dashed",
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.primary,
     backgroundColor: "transparent",
   },
   posterImage: {
     width: "100%",
     height: "100%",
+    resizeMode: "cover",
   },
   posterEmoji: {
     fontSize: 48,

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import MovieCard from "../../components/MovieCard";
 import SearchModal from "../../components/SearchModal";
 import { localMovies } from "../../data/localMovies";
@@ -19,16 +25,24 @@ export default function HomeScreen() {
 
   function combineMovies() {
     // puxar filmes aleatórios de localMovies como recomendações
-    const mockRecs: Movie[] = [
-      localMovies[Math.floor(Math.random() * localMovies.length)],
-      localMovies[Math.floor(Math.random() * localMovies.length)],
-      localMovies[Math.floor(Math.random() * localMovies.length)],
-    ];
+
+    const available = localMovies.filter(
+      (movie) => movie.title !== left?.title && movie.title !== right?.title
+    );
+
+    const shuffled = [...available].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 4);
+
+    const mockRecs: Movie[] = selected.map((movie) => ({
+      title: movie.title,
+      subtitle: movie.subtitle,
+      imageSource: movie.imageSource,
+    }));
     setRecs(mockRecs);
   }
 
   return (
-    <View style={styles.tela}>
+    <ScrollView style={styles.tela}>
       <Text style={styles.tituloApp}>Movie Match</Text>
 
       <View style={styles.linhaHorizontal}>
@@ -55,20 +69,26 @@ export default function HomeScreen() {
       </TouchableOpacity>
 
       <Text style={styles.tituloSecao}>Recomendações:</Text>
-      <FlatList
-        data={recs}
-        keyExtractor={(item, idx) => `${item.title}-${idx}`}
-        renderItem={({ item }) => (
-          <View style={styles.cardList}>
-            <Text style={styles.texto}>{item.title}</Text>
-            <Text style={styles.subtexto}>{item.subtitle}</Text>
-          </View>
-        )}
-        contentContainerStyle={styles.listaGap}
-        ListEmptyComponent={
-          <Text style={styles.hint}>Adicione filmes e combine</Text>
-        }
-      />
+      {recs.length > 0 ? (
+        <FlatList
+          data={recs}
+          keyExtractor={(item, idx) => `${item.title}-${idx}`}
+          numColumns={2}
+          scrollEnabled={false}
+          columnWrapperStyle={styles.linhaHorizontal}
+          renderItem={({ item }) => (
+            <MovieCard
+              title={item.title}
+              subtitle={item.subtitle}
+              imageUrl={item.imageSource}
+              style={styles.card}
+            />
+          )}
+          contentContainerStyle={{ gap: 12 }}
+        />
+      ) : (
+        <Text style={styles.subtexto}>Nenhuma recomendação ainda.</Text>
+      )}
       <SearchModal
         visible={!!open}
         onClose={() => setOpen(null)}
@@ -77,6 +97,6 @@ export default function HomeScreen() {
           if (open === "right") setRight(m);
         }}
       />
-    </View>
+    </ScrollView>
   );
 }

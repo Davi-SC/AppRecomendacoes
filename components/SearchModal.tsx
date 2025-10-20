@@ -55,14 +55,14 @@ export default function SearchModal({ visible, onClose, onSelect }: Props) {
                 onSelect({
                   title: item.title,
                   subtitle: item.subtitle,
-                  imageSource: item.image,
+                  imageSource: item.imageSource,
                 });
                 onClose();
                 setQ("");
               }}
             >
               <Image
-                source={item.image}
+                source={item.imageSource}
                 style={{ width: 50, height: 75, borderRadius: 8 }}
               ></Image>
               <View style={{ flex: 1 }}>
