@@ -13,7 +13,7 @@ type Props = {
   title?: string;
   subtitle?: string;
   placeholder?: boolean;
-  imageUrl?: ImageSourcePropType;
+  imageSource?: ImageSourcePropType;
   onPress?: () => void;
   style?: ViewStyle;
 };
@@ -21,7 +21,7 @@ type Props = {
 export default function MovieCard({
   title,
   subtitle,
-  imageUrl,
+  imageSource,
   onPress,
   style,
   placeholder,
@@ -33,9 +33,9 @@ export default function MovieCard({
       activeOpacity={0.9}
     >
       <View style={[styles.poster, placeholder && styles.posterPlaceholder]}>
-        {imageUrl && !placeholder ? (
+        {imageSource && !placeholder ? (
           <Image
-            source={imageUrl}
+            source={imageSource}
             style={styles.posterImage}
             contentFit="cover"
             transition={300}

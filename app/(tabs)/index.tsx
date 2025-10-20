@@ -10,6 +10,7 @@ import MovieCard from "../../components/MovieCard";
 import SearchModal from "../../components/SearchModal";
 import { localMovies } from "../../data/localMovies";
 import { styles } from "../../styles/styles";
+import Header from "../../components/Header";
 
 type Movie = {
   title: string;
@@ -43,14 +44,14 @@ export default function HomeScreen() {
 
   return (
     <ScrollView style={styles.tela}>
-      <Text style={styles.tituloApp}>Movie Match</Text>
+      <Header title="Movie Match" />
 
       <View style={styles.linhaHorizontal}>
         <MovieCard
           placeholder={!left}
           title={left?.title}
           subtitle={left?.subtitle}
-          imageUrl={left?.imageSource}
+          imageSource={left?.imageSource}
           style={styles.metade}
           onPress={() => setOpen("left")}
         />
@@ -58,7 +59,7 @@ export default function HomeScreen() {
           placeholder={!right}
           title={right?.title}
           subtitle={right?.subtitle}
-          imageUrl={right?.imageSource}
+          imageSource={right?.imageSource}
           style={styles.metade}
           onPress={() => setOpen("right")}
         />
@@ -80,7 +81,7 @@ export default function HomeScreen() {
             <MovieCard
               title={item.title}
               subtitle={item.subtitle}
-              imageUrl={item.imageSource}
+              imageSource={item.imageSource}
               style={styles.card}
             />
           )}

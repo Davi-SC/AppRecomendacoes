@@ -27,6 +27,19 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  //Header
+  header: {
+    backgroundColor: theme.colors.background,
+    paddingHorizontal: theme.spacing,
+    paddingBottom: 16,
+  },
+  tituloHeader: {
+    color: theme.colors.text,
+    fontSize: 24,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+
   //Tipos de texto
   tituloApp: {
     color: theme.colors.text,

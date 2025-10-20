@@ -4,6 +4,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import MovieCard from "../../components/MovieCard";
 import { localMovies } from "../../data/localMovies";
 import { styles } from "../../styles/styles";
+import Header from "../../components/Header";
 
 type Movie = { title: string; subtitle: string; imageSource?: any };
 
@@ -21,14 +22,14 @@ export default function RandomScreen() {
 
   return (
     <View style={styles.tela}>
-      <Text style={styles.tituloApp}>Movie match</Text>
+      <Header title="Movie Match" />
 
       <View style={styles.centro}>
         <MovieCard
           placeholder={!movie}
           title={movie?.title}
           subtitle={movie?.subtitle}
-          imageUrl={movie?.imageSource}
+          imageSource={movie?.imageSource}
           style={{ width: "70%" }}
         />
       </View>
