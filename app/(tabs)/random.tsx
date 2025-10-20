@@ -1,43 +1,41 @@
-import { Alert, Button, StyleSheet, Text, View } from "react-native";
+// app/(tabs)/random.tsx
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import MovieCard from "../../components/MovieCard";
+import { localMovies } from "../../data/localMovies";
+import { styles } from "../../styles/styles";
 
-export default function ExploreScreen() {
-  const alerta = () => {
-    Alert.alert("Funcionalidade em desenvolvimento");
-  };
+type Movie = { title: string; subtitle: string; imageSource?: any };
+
+export default function RandomScreen() {
+  const [movie, setMovie] = useState<Movie | null>(null);
+
+  function recommend() {
+    const next = localMovies[Math.floor(Math.random() * localMovies.length)];
+    setMovie({
+      title: next.title,
+      subtitle: next.subtitle,
+      imageSource: next.image,
+    });
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.sectionTitle}>
-        Descubra recomendações com base em filmes preferidos!
-      </Text>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Simpsons</Text>
-        <Text style={styles.cardSubtitle}>Comédia - 2007</Text>
+    <View style={styles.tela}>
+      <Text style={styles.tituloApp}>🎬 movie match</Text>
+
+      <View style={styles.centro}>
+        <MovieCard
+          placeholder={!movie}
+          title={movie?.title}
+          subtitle={movie?.subtitle}
+          imageUrl={movie?.imageSource}
+          style={{ width: "70%" }}
+        />
       </View>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Simpsons</Text>
-        <Text style={styles.cardSubtitle}>Comédia - 2007</Text>
-      </View>
-      <Button title="Buscar Recomendações" onPress={alerta} />
-      <Button title="Recomendação Aleatória" onPress={alerta} />
+
+      <TouchableOpacity style={styles.btnSecondary} onPress={recommend}>
+        <Text style={styles.btnSecondaryText}>🎲 Recomendar aleatório</Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: "#19192dff" },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#fff",
-    marginBottom: 16,
-    textAlign: "center",
-  },
-  card: {
-    marginBottom: 12,
-    backgroundColor: "#2c2c41ff",
-    borderRadius: 8,
-    padding: 16,
-  },
-  cardTitle: { color: "#fff", fontWeight: "bold", fontSize: 16 },
-  cardSubtitle: { color: "#a2a2acff", fontSize: 13 },
-});
