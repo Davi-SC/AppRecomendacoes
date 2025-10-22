@@ -13,11 +13,7 @@ export default function RandomScreen() {
 
   function recommend() {
     const next = localMovies[Math.floor(Math.random() * localMovies.length)];
-    setMovie({
-      title: next.title,
-      subtitle: next.subtitle,
-      imageSource: next.imageSource,
-    });
+    setMovie(next);
   }
 
   return (

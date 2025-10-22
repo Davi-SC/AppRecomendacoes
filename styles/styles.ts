@@ -100,13 +100,12 @@ export const styles = StyleSheet.create({
   //Poster do filme
   poster: {
     width: "100%",
-    height: 180,
+    height: 230,
     borderRadius: theme.radius,
     backgroundColor: theme.colors.card,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 10,
-    overflow: "hidden",
   },
   posterPlaceholder: {
     borderWidth: 2,
