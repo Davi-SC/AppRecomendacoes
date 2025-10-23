@@ -11,7 +11,8 @@ import SearchModal from "../../components/SearchModal";
 import { localMovies } from "../../data/localMovies";
 import { styles } from "../../styles/styles";
 import Header from "../../components/Header";
-import ButtonPrim from "@/components/ButtonPrim";
+import ButtonPrim from "../../components/ButtonPrim";
+import Footer from "../../components/Footer";
 
 type Movie = {
   title: string;
@@ -97,6 +98,7 @@ export default function HomeScreen() {
           if (open === "right") setRight(m);
         }}
       />
+      <Footer />
     </ScrollView>
   );
 }

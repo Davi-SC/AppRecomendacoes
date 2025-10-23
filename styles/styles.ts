@@ -39,6 +39,18 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
 
+  //Footer
+  footer: {
+    backgroundColor: theme.colors.background,
+    paddingHorizontal: theme.spacing,
+    paddingVertical: 10,
+  },
+  textoFooter: {
+    color: theme.colors.subtext,
+    fontSize: 10,
+    textAlign: "center",
+  },
+
   //Tipos de texto
   tituloApp: {
     color: theme.colors.text,
