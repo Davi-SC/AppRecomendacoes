@@ -4,7 +4,7 @@ Este é um aplicativo React Native/Expo para recomendação de filmes. O app per
 
 ---
 
-## ⚙️ Como rodar localmente
+## ⚙️ Instalação e Execução
 
 1. **Pré-Requisitos**
 
@@ -20,21 +20,21 @@ Este é um aplicativo React Native/Expo para recomendação de filmes. O app per
    Rode no terminal:
 
 ```bash
-git clone https://github.com/seu-usuario/AppRecomendacoes.git
+git clone https://github.com/Davi-SC/AppRecomendacoes.git
 cd AppRecomendacoes
 ```
 
 ---
 
-3. **Instalando**
+3. **Instalando Dependências**
 
    No terminal, com o projeto aberto:
 
 ```bash
 npm install
+# ou
+yarn install
 ```
-
-ou com Yarn
 
 ---
 
