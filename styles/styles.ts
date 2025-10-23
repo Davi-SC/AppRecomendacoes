@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const theme = {
   colors: {
-    primary: "#6200ee",
-    secondary: "#03dac6",
+    primary: "#03dac6",
     background: "#f6f6f6",
     error: "#b00020",
     border: "#cccccc",
@@ -94,7 +93,7 @@ export const styles = StyleSheet.create({
     borderRadius: theme.radius,
     padding: 12,
     borderLeftWidth: 4,
-    borderLeftColor: theme.colors.secondary,
+    borderLeftColor: theme.colors.primary,
   },
 
   //Poster do filme
@@ -124,27 +123,15 @@ export const styles = StyleSheet.create({
   },
 
   //Botões
-  btnPrimary: {
-    backgroundColor: theme.colors.primary,
-    padding: theme.spacing,
-    borderRadius: theme.radius,
-    alignItems: "center",
-    marginVertical: theme.spacing,
-  },
-  btnPrimaryText: {
-    color: theme.colors.text,
-    fontWeight: "800",
-    fontSize: 16,
-  },
-  btnSecondary: {
+  btnPrim: {
     borderWidth: 2,
-    borderColor: theme.colors.secondary,
+    borderColor: theme.colors.primary,
     padding: theme.spacing,
     borderRadius: theme.radius,
     alignItems: "center",
     marginTop: theme.spacing,
   },
-  btnSecondaryText: {
+  btnPrimText: {
     color: theme.colors.text,
     fontWeight: "800",
     fontSize: 16,

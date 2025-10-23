@@ -5,6 +5,7 @@ import MovieCard from "../../components/MovieCard";
 import { localMovies } from "../../data/localMovies";
 import { styles } from "../../styles/styles";
 import Header from "../../components/Header";
+import ButtonPrim from "@/components/ButtonPrim";
 
 type Movie = { title: string; subtitle: string; imageSource?: any };
 
@@ -30,9 +31,7 @@ export default function RandomScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.btnSecondary} onPress={recommend}>
-        <Text style={styles.btnSecondaryText}>Recomendar aleatório</Text>
-      </TouchableOpacity>
+      <ButtonPrim title="Recomendar Filme" onPress={recommend} />
     </View>
   );
 }

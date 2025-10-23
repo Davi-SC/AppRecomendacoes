@@ -11,6 +11,7 @@ import SearchModal from "../../components/SearchModal";
 import { localMovies } from "../../data/localMovies";
 import { styles } from "../../styles/styles";
 import Header from "../../components/Header";
+import ButtonPrim from "@/components/ButtonPrim";
 
 type Movie = {
   title: string;
@@ -65,9 +66,7 @@ export default function HomeScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.btnPrimary} onPress={combineMovies}>
-        <Text style={styles.btnPrimaryText}>Combinar Filmes</Text>
-      </TouchableOpacity>
+      <ButtonPrim title="Combinar Filmes" onPress={combineMovies} />
 
       <Text style={styles.tituloSecao}>Recomendações:</Text>
       {recs.length > 0 ? (
